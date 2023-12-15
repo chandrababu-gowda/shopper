@@ -5,6 +5,9 @@ const sellerRouter = require("./routes/seller");
 const app = express();
 app.use(express.json());
 
+app.use("/", customerRouter);
+app.use("/seller", sellerRouter);
+
 // Custom 404 page
 app.use((req, res) => {
   res

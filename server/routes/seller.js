@@ -1,8 +1,13 @@
 const express = require("express");
+const {
+  handleLogin,
+  handleChangePassword,
+} = require("../controllers/authentication");
 const router = express.Router();
 
-// Login
-router.post("/" /* Seller login */);
+// Authentication
+router.post("/", handleLogin);
+router.post("/changePassword", handleChangePassword);
 
 // Dashboard
 router.post("/dashboard" /* Create product */);
