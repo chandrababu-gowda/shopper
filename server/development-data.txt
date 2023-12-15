@@ -1,0 +1,14 @@
+Features
+001 - Authentication
+002 - Create
+003 - Read
+004 - Update
+005 - Delete
+006 - Orders
+007 - Payment
+
+Bugs
+
+
+Refactors
+001 - Basic
