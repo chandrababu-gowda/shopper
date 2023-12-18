@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const seller = require("../credentials");
+const { seller } = require("../credentials");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));

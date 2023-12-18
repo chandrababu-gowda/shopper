@@ -1,14 +1,34 @@
 require("dotenv").config();
 
 const app = require("./app");
+const sequelize = require("./middleware/db");
 const port = process.env.PORT || 3000;
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
+  console.log(`Success: Server started on http://localhost:${port}`);
 });
 
 // Connect to database
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Success: Database connected");
+  })
+  .catch((err) => {
+    console.log(`Error in server.js \nUnable to connect to database \n${err}`);
+  });
+
+sequelize
+  .sync()
+  .then(() => {
+    console.log("Success: All table synchronized");
+  })
+  .catch((err) => {
+    console.log(
+      `Error in server.js \nUnable to synchronize all tables\n${err}`
+    );
+  });
 
 // Terminate the server during uncaught exception
 app.use((req, res, next) => {
