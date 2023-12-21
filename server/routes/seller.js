@@ -15,12 +15,10 @@ router.post("/", handleLogin);
 router.post("/changePassword", handleChangePassword);
 
 // Dashboard
-
-// Add authenticateToken
-router.post("/dashboard", createController);
-router.get("/dashboard", readController);
-router.put("/dashboard", updateController);
-router.delete("/dashboard/:uid", deleteHandler);
+router.post("/dashboard", authenticateToken, createController);
+router.get("/dashboard", authenticateToken, readController);
+router.put("/dashboard", authenticateToken, updateController);
+router.delete("/dashboard/:uid", authenticateToken, deleteHandler);
 
 // Orders
 router.get("/orders" /* Orders */);
