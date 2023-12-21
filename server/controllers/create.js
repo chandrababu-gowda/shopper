@@ -12,7 +12,6 @@ function createController(req, res) {
         date: new Date(),
       })
       .then(() => {
-        console.log("The block");
         res.status(201).json({
           status: "201: Created",
           message: "Data added to products table",
@@ -20,8 +19,8 @@ function createController(req, res) {
       })
       .catch((err) => {
         console.log(`Error: controllers/create.js \n${err}`);
-        res.status(404).json({
-          status: "404: Bad Request",
+        res.status(400).json({
+          status: "400: Bad Request",
           message: "Unable to create item due to client error",
         });
       });
