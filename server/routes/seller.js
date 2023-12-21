@@ -6,6 +6,7 @@ const {
 } = require("../controllers/authentication");
 const { createController } = require("../controllers/create");
 const { readController } = require("../controllers/read");
+const { updateController } = require("../controllers/update");
 const router = express.Router();
 
 // Authentication
@@ -17,7 +18,7 @@ router.post("/changePassword", handleChangePassword);
 // Add authenticateToken
 router.post("/dashboard", createController);
 router.get("/dashboard", readController);
-router.put("/dashboard" /* Update product */);
+router.put("/dashboard", updateController);
 router.delete("/dashboard" /* Delete product */);
 
 // Orders

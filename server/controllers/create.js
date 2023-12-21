@@ -1,7 +1,7 @@
 const uuid = require("uuid");
 const productModel = require("../models/products");
 
-async function createController(req, res) {
+function createController(req, res) {
   try {
     productModel
       .create({
