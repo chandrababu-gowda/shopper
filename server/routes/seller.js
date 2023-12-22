@@ -8,6 +8,7 @@ const { createController } = require("../controllers/create");
 const { readController } = require("../controllers/read");
 const { updateController } = require("../controllers/update");
 const { deleteHandler } = require("../controllers/delete");
+const { orderReadController } = require("../controllers/orders");
 const router = express.Router();
 
 // Authentication
@@ -21,6 +22,6 @@ router.put("/dashboard", authenticateToken, updateController);
 router.delete("/dashboard/:uid", authenticateToken, deleteHandler);
 
 // Orders
-router.get("/orders" /* Orders */);
+router.get("/orders", authenticateToken, orderReadController);
 
 module.exports = router;
